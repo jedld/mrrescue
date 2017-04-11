@@ -1,11 +1,11 @@
 default_config = {
-	scale = 3,
+	scale = 1.356,
 	fullscreen = 0,
 	vsync = true,
 	sfx_volume = 1.0,
 	music_volume = 0.5,
 	keys = {
-			up = "up", down = "down", left = "left", right = "right", jump = "s", shoot = "d", action = "a"
+			up = "up", down = "down", left = "left", right = "right", jump = "j", shoot = "k", action = "l"
 	},
 	joykeys = {
 		jump = 1, shoot = 3, action = 2, pause = 8
@@ -86,13 +86,8 @@ function saveStats()
 end
 
 function setMode()
-	if config.fullscreen == 0 then
 		love.window.setMode(WIDTH*config.scale, HEIGHT*config.scale, {fullscreen=false, vsync=config.vsync})
 		love.graphics.setScissor()
-	elseif config.fullscreen > 0 and config.fullscreen <= 3 then
-		love.window.setMode(0,0, {fullscreen=true, vsync=config.vsync})
-		love.window.setMode(love.graphics.getWidth(), love.graphics.getHeight(), {fullscreen=true, vsync=config.vsync})
-	end
 	fs_translatex = (love.graphics.getWidth()-WIDTH*config.scale)/2
 	fs_translatey = (love.graphics.getHeight()-HEIGHT*config.scale)/2
 end
